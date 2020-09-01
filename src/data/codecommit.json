@@ -1,0 +1,19 @@
+[
+  {
+    "type": "repository",
+    "cfnType": "AWS::CodeCommit::Repository",
+    "startsWith": "",
+    "resourceLink": {
+      "templateUri": "/codesuite/codecommit/repositories/${Name}/browse?region=${awsRegion}",
+      "mappings": {
+        "Name": "_rest_"
+      }
+    },
+    "resourceName": {
+      "template": "${Name}",
+      "mappings": {
+        "Name": "_rest_"
+      }
+    }
+  }
+]

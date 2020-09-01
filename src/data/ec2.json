@@ -1,0 +1,19 @@
+[
+  {
+    "type": "instance",
+    "cfnType": "AWS::EC2::Instance",
+    "startsWith": "instance/",
+    "resourceName": {
+      "template": "${Id}",
+      "mappings": {
+        "Id": "_rest_"
+      }
+    },
+    "resourceLink": {
+      "templateUri": "/ec2/v2/home#Instances:instanceId=${Id}",
+      "mappings": {
+        "Id": "_rest_"
+      }
+    }
+  }
+]

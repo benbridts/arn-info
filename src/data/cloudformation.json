@@ -1,0 +1,48 @@
+[
+  {
+    "type": "stack",
+    "cfnType": "AWS::CloudFormation::Stack",
+    "regex": "stack/(?P<Name>[^/]*)/(?P<Id>.*)",
+    "resourceName": {
+      "template": "${Name}",
+      "mappings": {
+        "Name": "Name"
+      }
+    },
+    "resourceLink": {
+      "templateUri": "/cloudformation/home?region=${awsRegion}#/stacks/stackinfo?stackId=arn%3A${awsPartition}%3Acloudformation%3A${awsRegion}%3A${awsAccountId}%3Astack%2F${Name}%2F${Id}",
+      "mappings": {
+        "Name": "Name",
+        "Id": "Id"
+      }
+    }
+  },
+  {
+    "type": "stackset",
+    "regex": "stackset/(?P<Name>[^:]*):(?P<Id>.*)",
+    "resourceName": {
+      "template": "${Name}",
+      "mappings": {
+        "Name": "Name"
+      }
+    },
+    "resourceLink": {
+      "templateUri": "/cloudformation/home?region=${awsRegion}#/stacksets/${Name}:${Id}/info",
+      "mappings": {
+        "Name": "Name",
+        "Id": "Id"
+      }
+    }
+  },
+  {
+    "type": "changeset",
+    "regex": "changeset/(?P<Name>[^/]*)/(?P<Id>.*)",
+    "resourceName": {
+      "template": "${Name}",
+      "mappings": {
+        "Name": "Name"
+      }
+    },
+    "_resourceLink": "Not possible, because that needs the StackId, and we cannot see that in the ARN"
+  }
+]
