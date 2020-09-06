@@ -5,18 +5,7 @@ from dataclasses import dataclass
 from textwrap import dedent
 from typing import Mapping, Optional, Any
 
-import arn
 from arn import Arn
-
-# BugFix, see https://github.com/instacart/arn/pull/9
-arn.BASE_PATTERN = re.compile(
-    r"^arn:"
-    r"(?P<partition>.+?):"
-    r"(?P<service>.+?):"
-    r"(?P<region>.*?):"
-    r"(?P<account>.*?):"
-    r"(?P<rest>.*)$"
-)
 
 # These technically might have ARNs, but are never referred to as such in the API.
 FAKE_ARNS = {
