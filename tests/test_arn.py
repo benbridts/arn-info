@@ -30,7 +30,13 @@ from resources import Resource
         'i-b9b4ffaa',
         'aws', 'ec2', '', '', 'instance', 'i-b9b4ffaa', 'AWS::EC2::Instance',
         'https://console.aws.amazon.com/ec2/v2/home#Instances:instanceId=i-b9b4ffaa'
-    )
+    ),
+    # Lambda
+    (
+        'arn:aws:lambda:eu-west-1:123456789012:function:functionName',
+        'aws', 'lambda', 'eu-west-1', '123456789012', 'function', 'functionName', "AWS::Lambda::Function",
+        'https://console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/functionName',
+    ),
 ])
 def test_arn(arn, partition, service, region, account, type, name, cloudformation_type, console_link):
     resource = Resource.from_arn(arn)
